@@ -4,5 +4,5 @@
 
 #   🎥 Movie Details:
 
-<img src="https://github.com/uttamaPrh/Handicapped_Tutor_System-Frontent-Version-/blob/main/Courses" alt="Alt text" title="Optional title">
+<img src="https://github.com/uttamaPrh/Handicapped_Tutor_System-Frontent-Version-/blob/main/Courses.png" alt="Alt text" title="Optional title">
 
