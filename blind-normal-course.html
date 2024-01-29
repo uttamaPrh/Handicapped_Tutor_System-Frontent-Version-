@@ -1,0 +1,186 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" title="INDOCTRINATION">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/navfooter.css">
+    
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/course.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Normal</title>
+</head>
+<audio autoplay id="sectoin1">
+      <source src="blind/music/blind-course-voice.mp3" type="">
+  </audio>
+  <body style="background-color:#171717;">
+  	<section style="color: #fff;">
+   <nav class="blend">
+    <ul>
+        <a href="hackathone.html"><img src="img/incoc.png" class="ima" title="INDOCTRINATION"></a>
+      <li><i class="fa fa-server fa-2x text-dark"></i><a href="live_video.html">Live Tutors</a></li>
+        
+        <li><i class="fa fa-users fa-2x text-dark"></i><a href="#">About</a></li>
+      <li><i class="fa fa-phone fa-2x text-dark"></i><a href="contact.html">Contact-Us</a></li>
+      <li><i class="fa fa-user fa-2x text-dark"></i><a href="#">Profile</a></li>
+    </ul>
+  </nav><br>
+
+    </section>
+    <div class="container">
+  <div class="row">
+    <div class="col">
+      <h6 class="text-success h1">Courses For You</h6> 
+      <ul class="list-group">
+       <a href=""> <li class="list-group-item d-flex justify-content-between align-items-center">
+          Primary Level Course 
+          <div class="image-parent">
+              <img src="img/primary.jpg" class="img-fluid" alt="quixote">
+          </div>
+        </li></a>
+       <a href=""><li class="list-group-item d-flex justify-content-between align-items-center">
+         Lower Secondary Courses
+          <div class="image-parent">
+              <img src="img/secondary.jpg" class="img-fluid" alt="lay">
+        </li></a>
+        <a href=""><li class="list-group-item d-flex justify-content-between align-items-center">  
+      BBS Courses
+          <div class="image-parent">
+              <img src="img/bbs.jpg" class="img-fluid" alt="things">
+        </li></a>
+                <a href=""><li class="list-group-item d-flex justify-content-between align-items-center">  
+       BSW Courses
+          <div class="image-parent">
+              <img src="img/bsw.png" class="img-fluid" alt="things">
+        </li></a>
+                <a href=""><li class="list-group-item d-flex justify-content-between align-items-center">  
+       BSc. CSIT Courses
+          <div class="image-parent">
+              <img src="img/csi.jpg" class="img-fluid" alt="things">
+        </li></a>
+        <a href=""><li class="list-group-item d-flex justify-content-between align-items-center">  
+       Other Courses
+          <div class="image-parent">
+              <img src="img/other.jpg" class="img-fluid" alt="things">
+        </li></a>
+      </ul>
+    </div>
+  </div>
+</div>
+<style type="text/css">
+
+.image-parent {
+  max-width: 80px;
+}
+a{
+  text-decoration: none;
+  border-bottom: none;
+}
+</style>
+
+<script type="text/javascript">
+  var  one = document.getElementById('sectoin1')
+
+if ( one) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 13) { // space
+      event.preventDefault();
+      one.paused ? one.play() :  one.pause()
+      two.pause();
+      three.pause();
+      mus.pause();
+    } 
+    else if(key ==32){
+      event.preventDefault();
+      one.pause();
+       }
+    else if (key == 37) { // left arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     one.currentTime = simpleDurationParsing(duration);
+     one.play(); // autostart
+  }
+}
+
+// parses duration like: '2m12', '2m12s', '200s', '200'
+// outputs the duration in seconds
+function simpleDurationParsing(duration) {
+  duration = duration.toLowerCase();
+
+  var seconds = 0;
+  var index = 0;
+
+  // minutes
+  if ((index = duration.indexOf('m')) > -1) {
+    seconds += parseInt(duration.substring(0, index)) * 60;
+    duration = duration.substr(index + 1);
+  }
+
+  // seconds
+  if ((index = duration.indexOf('s')) > -1)
+    duration = duration.substring(0, index);
+
+  if (duration.length)
+    seconds += parseInt(duration);
+
+  return seconds;
+}
+    window.addEventListener('keydown', function (e) 
+{
+     if (e.key== 'a') {
+  window.location.href= "about.html";
+}
+ if (e.key== 'c') {
+  window.location.href= "contact.html";
+}
+
+ if (e.key== 'l') {
+  window.location.href= "live_video.html";
+}
+ if (e.key== 'p') {
+  window.location.href= "#";
+}
+   if (e.key== 1) {
+  window.location.href= "blind-csit.html";
+}
+ if (e.key== 2) {
+ window.location.href= "blind-csit.html";
+}
+ if (e.key== 3) {
+  window.location.href= "blind-csit.html";
+}
+ if (e.key== 4) {
+  window.location.href= "blind-csit.html";
+}
+ if (e.key== 5) {
+  window.location.href= "blind-csit.html";
+}
+ if (e.key== 6) {
+  window.location.href= "#";
+}
+if (e.key== 0) {
+  window.location.href = "blind-course-selection.html";
+}
+
+}, false);
+</script>
+
+
+
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+     </body>
+</html>

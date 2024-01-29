@@ -1,0 +1,286 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!-- Required meta tags -->
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" title="INDOCTRINATION">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="css/navfooter.css">
+    
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/course.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <title>Piano set</title></head>
+<body style="background-image:url('img/pianoimage.jpg');">
+    <audio autoplay id="sectoin1">
+      <source src="blind/music/pianovoice.mp3" type="">
+  </audio>
+<section style="color: #fff;">
+   <nav class="blend">
+    <ul>
+        <a href="hackathone.html"><img src="img/incoc.png" class="ima" title="INDOCTRINATION"></a>
+    
+        <li><i class="fa fa-users fa-2x text-dark"></i><a href="#">About</a></li>
+      <li><i class="fa fa-phone fa-2x text-dark"></i><a href="contact.html">Contact-Us</a></li>
+    </ul>
+  </nav><br>
+
+    </section>
+  <div>
+  <p class="keyboard">Hit [A/S/D/F/G/H/J/K/L] in your keyboard for naturals and [W/E/T/Y/U/O/P] FOR sharps!<p>
+    </div>
+     
+    <div class="container">
+
+  <div class="keys">
+  	<div class="row">
+  	<div data-key="87" class="key">
+      <kbd>W</kbd>
+	 </div>
+	 <div data-key="69" class="key">
+      <kbd>E</kbd>
+	 </div>
+	 <div data-key="84" class="key">
+      <kbd>T</kbd>
+	 </div>
+	 <div data-key="89" class="key">
+      <kbd>Y</kbd>
+	 </div>
+	 <div data-key="85" class="key">
+      <kbd>U</kbd>
+	 </div>
+	 <div data-key="79" class="key">
+      <kbd>O</kbd>
+	 </div>
+	 <div data-key="80" class="key">
+      <kbd>P</kbd>
+	 </div>
+</div>
+<div class="row">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+          </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+    </div>
+    <div data-key="186" class="key">
+      <kbd>;</kbd>
+    </div>
+  </div>
+
+</div>
+</div>
+  
+
+ 
+
+
+ <audio data-key="83" src="blind/music/s-piano.wav">
+ <audio data-key="87" src="blind/music/w-piano.wav">
+
+<audio data-key="65" src="blind/music/a-piano.wav" >
+<audio data-key="68" src="blind/music/d-piano.wav" >
+<audio data-key="69" src="blind/music/e-piano.wav">
+ <audio data-key="84" src="blind/music/t-piano.wav">
+ <audio data-key="89" src="blind/music/y-piano.wav">
+ <audio data-key="85" src="blind/music/u-piano.wav">
+ <audio data-key="79" src="blind/music/o-piano.wav">
+ <audio data-key="80" src="blind/music/p-piano.wav">
+<audio data-key="70" src="blind/music/f-piano.wav" >
+
+<audio data-key="71" src="blind/music/g-piano.wav" >
+
+<audio data-key="72" src="blind/music/h-piano.wav" >
+
+<audio data-key="74" src="blind/music/j-piano.wav" >
+
+<audio data-key="75" src="blind/music/k-piano.wav" >
+
+<audio data-key="76" src="blind/music/l-piano.wav" >
+
+<audio data-key="186" src="blind/music/sc-piano.wav" >
+  
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> 
+
+<script>
+  var  one = document.getElementById('sectoin1')
+
+if ( one) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 13) { // space
+      event.preventDefault();
+      one.paused ? one.play() :  one.pause()
+      two.pause();
+      three.pause();
+      mus.pause();
+    } 
+    else if(key ==32){
+      event.preventDefault();
+      one.pause();
+       }
+    else if (key == 37) { // left arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     one.currentTime = simpleDurationParsing(duration);
+     one.play(); // autostart
+  }
+}
+
+// parses duration like: '2m12', '2m12s', '200s', '200'
+// outputs the duration in seconds
+function simpleDurationParsing(duration) {
+  duration = duration.toLowerCase();
+
+  var seconds = 0;
+  var index = 0;
+
+  // minutes
+  if ((index = duration.indexOf('m')) > -1) {
+    seconds += parseInt(duration.substring(0, index)) * 60;
+    duration = duration.substr(index + 1);
+  }
+
+  // seconds
+  if ((index = duration.indexOf('s')) > -1)
+    duration = duration.substring(0, index);
+
+  if (duration.length)
+    seconds += parseInt(duration);
+
+  return seconds;
+}
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+
+
+
+    window.addEventListener('keydown', function (e) 
+{
+   if (e.key== 'c') {
+  window.location.href= "contact.html";
+}
+if (e.key== 0) {
+  window.location.href= "creative.html";
+}
+}, false);
+</script>
+<style type="text/css">
+	html {
+  font-size: 10px;
+  background:url('img/pianoimage.jpg') bottom center;
+  background-size: cover;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.keyboard{
+  color: #ff014b;
+  background-color:#ffc600;
+  font-size: 1.7em;
+  font-weight: 800;
+  text-align: center;
+}
+
+.keys {
+  display:flex;
+  flex:1;
+  min-height:100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border:4px solid black;
+  border-radius:5px;
+  margin:1rem;
+  font-size: 1.5rem;
+  padding:1rem .5rem;
+  transition:all .07s;
+  width:100px;
+  text-align: center;
+  color:white;
+  background:rgba(0,0,0,0.4);
+  text-shadow:0 0 5px black;
+}
+
+.playing {
+  transform:scale(1.1);
+  border-color:#ffc600;
+  box-shadow: 0 0 10px #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 40px;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color:#ffc600;
+}
+
+a:link {
+    color: #ffc600;
+}
+a:hover { color: #AD1457; !important} 
+a:visited { color: #ff014b;}
+
+
+
+</style>
+
+</body>
+</html>

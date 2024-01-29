@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset="utf-8">
+	<title>Audio tracking</title>
+</head>
+<body>
+<audio id="one" controls>
+	<source src="videos/demo1.mp3" type="">
+</audio>
+<audio id="two" controls>
+	<source src="videos/sound.mp3" type="">
+</audio>
+<audio id="three" controls>
+	<source src="videos/demo2.mp3" type="">
+</audio>
+
+<script type="text/javascript">
+	var  one = document.getElementById('one')
+
+if ( one) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 65) { // space
+      event.preventDefault();
+      one.paused ? one.play() :  one.pause()
+      two.pause();
+      three.pause();
+    } 
+    else if(key ==32){
+      event.preventDefault();
+      one.pause();
+       }
+    else if (key == 37) { // left arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     one.currentTime = simpleDurationParsing(duration);
+     one.play(); // autostart
+  }
+}
+var  two = document.getElementById('two')
+
+if ( two) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 66) { // space
+      event.preventDefault();
+       two.paused ?  two.play() :  two.pause()
+            one.pause();
+            three.pause();
+    }
+        else if(key ==32){
+      event.preventDefault();
+      two.pause();
+       }
+        else if (key == 37) { // left arrow
+      event.preventDefault();
+       two.currentTime =  two.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       two.currentTime =  two.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     two.currentTime = simpleDurationParsing(duration);
+     two.play(); // autostart
+  }
+}
+var  three = document.getElementById('three')
+
+if ( three) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 67) { // space
+      event.preventDefault();
+       three.paused ?  three.play() :  three.pause()
+       one.pause();
+       two.pause();
+    } 
+       else if(key ==32){
+      event.preventDefault();
+      three.pause();
+       }
+       else if (key == 37) { // left arrow
+      event.preventDefault();
+       three.currentTime =  three.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       three.currentTime =  three.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     three.currentTime = simpleDurationParsing(duration);
+     three.play(); // autostart
+  }
+}
+
+// parses duration like: '2m12', '2m12s', '200s', '200'
+// outputs the duration in seconds
+function simpleDurationParsing(duration) {
+  duration = duration.toLowerCase();
+
+  var seconds = 0;
+  var index = 0;
+
+  // minutes
+  if ((index = duration.indexOf('m')) > -1) {
+    seconds += parseInt(duration.substring(0, index)) * 60;
+    duration = duration.substr(index + 1);
+  }
+
+  // seconds
+  if ((index = duration.indexOf('s')) > -1)
+    duration = duration.substring(0, index);
+
+  if (duration.length)
+    seconds += parseInt(duration);
+
+  return seconds;
+}
+
+</script>
+</body>
+</html>

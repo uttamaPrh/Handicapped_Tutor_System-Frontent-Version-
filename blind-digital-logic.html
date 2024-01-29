@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <link rel="shortcut icon" href="img/favicon.png" type="image/x-icon" title="INDOCTRINATION">
+<link href='https://fonts.googleapis.com/css?family=Allerta' rel='stylesheet'>
+	<meta charset="utf-8">
+	<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" />
+<link rel="stylesheet" type="text/css" href="css/course.css">
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
+    <link rel="stylesheet" type="text/css" href="css/navfooter.css">
+		<title>course Study</title>
+</head>
+<body>
+   <nav class="blend">
+    <ul>
+        <a href="hackathone.html"><img src="img/incoc.png" class="ima" title="INDOCTRINATION"></a>
+      <li><i class="fa fa-server fa-2x text-dark"></i><a href="live_video.html">Live Tutors</a></li>
+        
+        <li><i class="fa fa-users fa-2x text-dark"></i><a href="#">About</a></li>
+      <li><i class="fa fa-phone fa-2x text-dark"></i><a href="contact.html">Contact-Us</a></li>
+      <li><i class="fa fa-user fa-2x text-dark"></i><a href="#">Profile</a></li>
+    </ul>
+  </nav><br>
+
+    </section>
+      <audio autoplay id="mus">
+      <source src="blind/music/digital1.mp3" type="">
+  </audio>
+    <h2>Binary System</h2>
+    <div class="container-audio">
+    	       	<h3>Digital and Analog System</h3>
+    	<img src="img/digit.jpg" class="img-fluid">
+        <audio controls  loop id="one">
+                   <source src="blind/music/digital2.mp3" type="audio/ogg">
+                   Your browser dose not Support the audio Tag
+               </audio>
+    </div>
+       <div class="container-audio">
+       	<h3>Number System</h3>
+    	<img src="img/number.jpg" class="img-fluid">
+        <audio controls  loop id="two">
+                   <source src="blind/music/digital3.mp3" type="audio/ogg">
+                   Your browser dose not Support the audio Tag
+               </audio>
+    </div>
+       <div class="container-audio">
+       	       	<h3>ASCII Code</h3>
+    	<img src="img/ascii.jpg" class="img-fluid">
+        <audio controls  loop id="three">
+                   <source src="blind/music/ascii.mp3" type="audio/ogg">
+                   Your browser dose not Support the audio Tag
+               </audio>
+    </div>
+    <div>
+      <a href="#"><button class="btn btn-outline-success mb-5 btn-lg">Next Unit &rarr;</button></a>
+    </div>
+    <style type="text/css">
+    	/* Global Reset */
+* {
+    font-family: 'Allerta', arial, Tahoma;
+    box-sizing: border-box;
+}
+body {
+    background-color: #171717;
+    text-align:center;
+    color:#fff;
+}
+h3{
+    text-shadow:1px 1px 1px #fff;
+}
+/* Start  styling the page */
+.container-audio {
+    width: 66%;
+    height: auto;
+    padding: 20px;
+    border-radius: 5px;
+    background-color: #eee;
+    color: #444;
+    margin: 20px auto;
+    overflow: hidden;
+}
+audio {
+  width:100%;
+}
+    </style>
+     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script>
+
+
+<script type="text/javascript">
+  var  one1 = document.getElementById('mus')
+
+if ( one1) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 13) { // space
+      event.preventDefault();
+      one1.paused ? one1.play() :  one1.pause()
+          } 
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     one.currentTime = simpleDurationParsing(duration);
+     one.play(); // autostart
+  }
+}
+
+	var  one = document.getElementById('one')
+
+if ( one) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 49) { // space
+      event.preventDefault();
+      one.paused ? one.play() :  one.pause()
+      two.pause();
+      three.pause();
+      mus.pause();
+    } 
+    else if(key ==32){
+      event.preventDefault();
+      one.pause();
+       }
+    else if (key == 37) { // left arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       one.currentTime =  one.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     one.currentTime = simpleDurationParsing(duration);
+     one.play(); // autostart
+  }
+}
+var  two = document.getElementById('two')
+
+if ( two) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 50) { // space
+      event.preventDefault();
+       two.paused ?  two.play() :  two.pause()
+            one.pause();
+            three.pause();
+            mus.pause();
+    }
+        else if(key ==32){
+      event.preventDefault();
+      two.pause();
+       }
+        else if (key == 37) { // left arrow
+      event.preventDefault();
+       two.currentTime =  two.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       two.currentTime =  two.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     two.currentTime = simpleDurationParsing(duration);
+     two.play(); // autostart
+  }
+}
+var  three = document.getElementById('three')
+
+if ( three) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 51) { // space
+      event.preventDefault();
+       three.paused ?  three.play() :  three.pause()
+       one.pause();
+       two.pause();
+       mus.pause();
+    } 
+       else if(key ==32){
+      event.preventDefault();
+      three.pause();
+       }
+       else if (key == 37) { // left arrow
+      event.preventDefault();
+       three.currentTime =  three.currentTime - 5;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+       three.currentTime =  three.currentTime + 5;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+     three.currentTime = simpleDurationParsing(duration);
+     three.play(); // autostart
+  }
+}
+
+// parses duration like: '2m12', '2m12s', '200s', '200'
+// outputs the duration in seconds
+function simpleDurationParsing(duration) {
+  duration = duration.toLowerCase();
+
+  var seconds = 0;
+  var index = 0;
+
+  // minutes
+  if ((index = duration.indexOf('m')) > -1) {
+    seconds += parseInt(duration.substring(0, index)) * 60;
+    duration = duration.substr(index + 1);
+  }
+
+  // seconds
+  if ((index = duration.indexOf('s')) > -1)
+    duration = duration.substring(0, index);
+
+  if (duration.length)
+    seconds += parseInt(duration);
+
+  return seconds;
+}
+window.addEventListener('keydown', function (e) 
+{
+   if (e.key== 0) {
+  window.location.replace("blind-subject.html");
+}
+ 
+}, false);
+</script>
+
+
+</body>
+</html>

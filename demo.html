@@ -1,0 +1,223 @@
+
+<!DOCTYPE html>
+<html>
+<body>
+  <div>
+  <p class="keyboard">Hit [A/S/D/F/G/H/J/K/L] in your keyboard!<p>
+    </div>
+  <div class="keys">
+    <div data-key="65" class="key">
+      <kbd>A</kbd>
+      <span class="sound">clap</span>
+    </div>
+    <div data-key="83" class="key">
+      <kbd>S</kbd>
+      <span class="sound">hihat</span>
+    </div>
+    <div data-key="68" class="key">
+      <kbd>D</kbd>
+      <span class="sound">kick</span>
+    </div>
+    <div data-key="70" class="key">
+      <kbd>F</kbd>
+      <span class="sound">openhat</span>
+    </div>
+    <div data-key="71" class="key">
+      <kbd>G</kbd>
+      <span class="sound">boom</span>
+    </div>
+    <div data-key="72" class="key">
+      <kbd>H</kbd>
+      <span class="sound">ride</span>
+    </div>
+    <div data-key="74" class="key">
+      <kbd>J</kbd>
+      <span class="sound">snare</span>
+    </div>
+    <div data-key="75" class="key">
+      <kbd>K</kbd>
+      <span class="sound">tom</span>
+    </div>
+    <div data-key="76" class="key">
+      <kbd>L</kbd>
+      <span class="sound">tink</span>
+    </div>
+  </div>
+
+
+
+
+
+
+
+  
+  <audio data-key="6" src="videos/demo1.mp3" id="player"></audio>
+  <audio data-key="83" src="videos/sound.mp3"></audio>
+  <audio data-key="68" src="http://www.engr.usask.ca/classes/CME/462/software/hapyou1.wav"></audio>
+  <audio data-key="70" src="http://www.republic-of-loafdom.com/Media/Soundclips/hvymetal.wav"></audio>
+  <audio data-key="71" src="http://sep800.mine.nu/files/sounds/screendoorclose.wav"></audio>
+  <audio data-key="72" src="https://www.mkd.co.uk/wav/sound.wav"></audio>
+  <audio data-key="74" src="http://www.4uall.net/free-sound-effects/SF-free-sound-effects/GUN_SHOT.WAV"></audio>
+  <audio data-key="75" src="http://cd.textfiles.com/sbsw/HOUSE/DOORHAN.WAV"></audio>
+  <audio data-key="76" src="https://www.junglebreaks.co.uk/listen/sing_simple_song.wav"></audio>
+
+  <div class="myLinks"> <!-- for footer -->
+      <h3><a href="http://www.eleftheriabatsou.com" target="_blank">Eleftheria Batsou</a> | <a href="https://codepen.io/EleftheriaBatsou" target="_blank">Projects</a></h3>
+    </div> <!-- end footer -->
+  
+  
+<script>
+
+var player = document.getElementById('player')
+
+if (player) {
+  window.addEventListener('keydown', function (event) {
+    var key = event.which || event.keyCode
+    if (key === 32) { // space
+      event.preventDefault();
+      player.paused ? player.play() : player.pause()
+    } else if (key == 37) { // left arrow
+      event.preventDefault();
+      player.currentTime = player.currentTime - 10;
+    } else if (key == 39) { // right arrow
+      event.preventDefault();
+      player.currentTime = player.currentTime + 10;
+    }
+  });
+
+  if (window.location.search) {
+    var duration = window.location.search.substr(1); // removes '?'
+    player.currentTime = simpleDurationParsing(duration);
+    player.play(); // autostart
+  }
+}
+
+// parses duration like: '2m12', '2m12s', '200s', '200'
+// outputs the duration in seconds
+function simpleDurationParsing(duration) {
+  duration = duration.toLowerCase();
+
+  var seconds = 0;
+  var index = 0;
+
+  // minutes
+  if ((index = duration.indexOf('m')) > -1) {
+    seconds += parseInt(duration.substring(0, index)) * 60;
+    duration = duration.substr(index + 1);
+  }
+
+  // seconds
+  if ((index = duration.indexOf('s')) > -1)
+    duration = duration.substring(0, index);
+
+  if (duration.length)
+    seconds += parseInt(duration);
+
+  return seconds;
+}
+
+
+
+
+
+
+  function removeTransition(e) {
+    if (e.propertyName !== 'transform') return;
+    e.target.classList.remove('playing');
+  }
+
+  function playSound(e) {
+    const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+    const key = document.querySelector(`div[data-key="${e.keyCode}"]`);
+    if (!audio) return;
+
+    key.classList.add('playing');
+    audio.currentTime = 0;
+    audio.play();
+  }
+
+  const keys = Array.from(document.querySelectorAll('.key'));
+  keys.forEach(key => key.addEventListener('transitionend', removeTransition));
+  window.addEventListener('keydown', playSound);
+</script>
+
+<style type="text/css">
+   
+   html {
+  font-size: 10px;
+  background:url(http://colorlisa.com/pictures/182_1.jpg) bottom center;
+  background-size: cover;
+}
+body,html {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.keyboard{
+  color: #ff014b;
+  background-color:#ffc600;
+  font-size: 1.7em;
+  font-weight: 800;
+  text-align: center;
+}
+
+.keys {
+  display:flex;
+  flex:1;
+  min-height:100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.key {
+  border:4px solid black;
+  border-radius:5px;
+  margin:1rem;
+  font-size: 1.5rem;
+  padding:1rem .5rem;
+  transition:all .07s;
+  width:100px;
+  text-align: center;
+  color:white;
+  background:rgba(0,0,0,0.4);
+  text-shadow:0 0 5px black;
+}
+
+.playing {
+  transform:scale(1.1);
+  border-color:#ffc600;
+  box-shadow: 0 0 10px #ffc600;
+}
+
+kbd {
+  display: block;
+  font-size: 40px;
+}
+
+.sound {
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color:#ffc600;
+}
+
+
+/* my links */
+.myLinks{
+  padding-left: 20px;
+  margin-bottom: 0%;
+  padding-bottom: 20px;
+  color: white;
+}
+a:link {
+    color: #ffc600;
+}
+a:hover { color: #AD1457; !important} 
+a:visited { color: #ff014b;}
+
+
+
+</style>
+</body>
+</html>
